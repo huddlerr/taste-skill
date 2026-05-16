@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BELVR — Spot (kinetic typography)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px; height: 1920px;
+    background: #050505; color: #f5f5f4;
+    font-family: 'Geist', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  .stage {
+    position: relative;
+    width: 1080px; height: 1920px;
+  }
+  .grain {
+    position: absolute; inset: 0; pointer-events: none; z-index: 100; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .vignette {
+    position: absolute; inset: 0; pointer-events: none; z-index: 99;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* Universal scene class */
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 80px;
+    opacity: 0;
+    text-align: center;
+  }
+  .scene.left   { justify-content: flex-start; text-align: left; padding-left: 96px; }
+  .scene.right  { justify-content: flex-end;   text-align: right; padding-right: 96px; }
+  .scene.top    { align-items: flex-start; padding-top: 280px; }
+  .scene.bottom { align-items: flex-end; padding-bottom: 220px; }
+
+  /* Typography primitives */
+  .t-mono {
+    font-family: 'Geist Mono', monospace;
+    font-size: 28px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #d6d3d1;
+  }
+  .t-small {
+    font-family: 'Geist', sans-serif; font-weight: 500;
+    font-size: 56px; line-height: 1.15; letter-spacing: -0.015em;
+    color: #f5f5f4;
+  }
+  .t-mid {
+    font-family: 'Geist', sans-serif; font-weight: 600;
+    font-size: 92px; line-height: 1.02; letter-spacing: -0.028em;
+    color: #fafaf9;
+  }
+  .t-big {
+    font-family: 'Geist', sans-serif; font-weight: 700;
+    font-size: 124px; line-height: 0.98; letter-spacing: -0.035em;
+    color: #fafaf9;
+  }
+  .t-serif {
+    font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 240px; line-height: 0.92; letter-spacing: -0.03em;
+    color: #fafaf9;
+  }
+  .t-serif-mid {
+    font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400;
+    font-size: 132px; line-height: 0.96; letter-spacing: -0.025em;
+    color: #fafaf9;
+  }
+  .t-mark {
+    font-family: 'Geist', sans-serif; font-weight: 800;
+    font-size: 96px; letter-spacing: 0.34em;
+    color: #fafaf9;
+  }
+  .accent-line {
+    display: block;
+    width: 80px; height: 2px;
+    background: #fafaf9;
+    margin: 28px auto 0;
+  }
+  .strike { text-decoration: line-through; text-decoration-thickness: 5px; color: #57534e; }
+  .muted { color: #a8a29e; }
+
+  /* ---------- Animations ----------
+     Each scene gets a precisely-timed keyframe animation.
+     Easing: custom cubic-bezier for cinematic feel.
+     Duration is fixed; animation-fill-mode: forwards keeps end state. */
+  @keyframes fadeHold {
+    0%   { opacity: 0; transform: translateY(8px); filter: blur(4px); }
+    12%  { opacity: 1; transform: translateY(0);   filter: blur(0); }
+    88%  { opacity: 1; transform: translateY(0);   filter: blur(0); }
+    100% { opacity: 0; transform: translateY(-6px); filter: blur(2px); }
+  }
+  @keyframes hardCut {
+    0%   { opacity: 0; }
+    1%   { opacity: 1; }
+    99%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes serifReveal {
+    0%   { opacity: 0; transform: scale(0.94); letter-spacing: -0.06em; filter: blur(8px); }
+    18%  { opacity: 1; transform: scale(1);    letter-spacing: -0.03em; filter: blur(0); }
+    82%  { opacity: 1; transform: scale(1);    letter-spacing: -0.03em; filter: blur(0); }
+    100% { opacity: 0; transform: scale(1.04); letter-spacing: -0.02em; filter: blur(4px); }
+  }
+  @keyframes markRise {
+    0%   { opacity: 0; transform: translateY(40px); letter-spacing: 0.5em; }
+    35%  { opacity: 1; transform: translateY(0);    letter-spacing: 0.34em; }
+    100% { opacity: 1; transform: translateY(0);    letter-spacing: 0.34em; }
+  }
+  @keyframes flicker {
+    0%   { opacity: 0; }
+    8%   { opacity: 1; }
+    50%  { opacity: 1; }
+    52%  { opacity: 0.3; }
+    54%  { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes caretBlink {
+    50% { opacity: 0; }
+  }
+  .caret {
+    display: inline-block; width: 0.55em; height: 1em;
+    background: #fafaf9; margin-left: 8px; vertical-align: -0.12em;
+    animation: caretBlink 0.7s steps(1) infinite;
+  }
+
+  /* ---------- Scene timing ----------
+     Total runtime: 28.5 seconds. Animations use fixed delays/durations. */
+
+  /* 0.0 - 3.0  intro mono */
+  .s1 { animation: hardCut 3.0s 0.0s ease-in-out both; }
+
+  /* 3.0 - 6.5  "Every athlete eventually stops." */
+  .s2 { animation: fadeHold 3.5s 3.0s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* 6.5 - 7.6  hard cut: "The whistle blows." */
+  .s3a { animation: hardCut 1.1s 6.5s linear both; }
+  /* 7.6 - 8.7  "The crowd leaves." */
+  .s3b { animation: hardCut 1.1s 7.6s linear both; }
+  /* 8.7 - 9.8  "The locker empties." */
+  .s3c { animation: hardCut 1.1s 8.7s linear both; }
+  /* 9.8 - 11.0 "And then —" */
+  .s3d { animation: hardCut 1.2s 9.8s linear both; }
+
+  /* 11.0 - 15.8  "Who am I now?" (the centerpiece) */
+  .s4 { animation: serifReveal 4.8s 11.0s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  /* 15.8 - 18.5  "You don't have a motivation problem." */
+  .s5 { animation: fadeHold 2.7s 15.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* 18.5 - 21.5  "You have a structure problem." */
+  .s6 { animation: fadeHold 3.0s 18.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* 21.5 - 24.0  "We built the operating system" */
+  .s7 { animation: fadeHold 2.5s 21.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* 24.0 - 28.5  end card: BELVR + tagline */
+  @keyframes hold {
+    0%   { opacity: 0; }
+    1%   { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  .s8-frame   { animation: hold 4.5s 24.0s linear both; }
+  .s8-mark    { animation: markRise 4.5s 24.0s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .s8-tagline { animation: fadeHold 4.5s 24.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .s8-url     { animation: fadeHold 3.7s 24.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  /* Compositional structure for the end card */
+  .end-card {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 56px;
+  }
+  .end-tagline {
+    font-family: 'Geist', sans-serif; font-weight: 400;
+    font-size: 38px; line-height: 1.35; letter-spacing: -0.012em;
+    color: #d6d3d1; max-width: 760px; text-align: center;
+  }
+  .end-url {
+    font-family: 'Geist Mono', monospace;
+    font-size: 22px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #a8a29e; padding-top: 16px; border-top: 1px solid #292524;
+    width: 280px; text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <!-- Scene 1: 0.0 - 3.0   Intro mono caret -->
+  <div class="scene s1">
+    <div class="t-mono">BELVR<span class="caret"></span></div>
+  </div>
+
+  <!-- Scene 2: 3.0 - 6.5   Every athlete eventually stops. -->
+  <div class="scene s2">
+    <div class="t-mid">Every athlete<br>eventually <em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.1em;">stops</em>.</div>
+  </div>
+
+  <!-- Scenes 3a-3d: rapid cuts -->
+  <div class="scene s3a top"><div class="t-mid">The whistle blows.</div></div>
+  <div class="scene s3b"><div class="t-mid">The crowd leaves.</div></div>
+  <div class="scene s3c bottom"><div class="t-mid">The locker empties.</div></div>
+  <div class="scene s3d"><div class="t-small muted">And then —</div></div>
+
+  <!-- Scene 4: 11.0 - 15.8   Who am I now? -->
+  <div class="scene s4">
+    <div class="t-serif">Who am<br>I now?</div>
+  </div>
+
+  <!-- Scene 5: 15.8 - 18.5 -->
+  <div class="scene s5">
+    <div class="t-mid">You don't have a<br><span class="strike">motivation</span> problem.</div>
+  </div>
+
+  <!-- Scene 6: 18.5 - 21.5 -->
+  <div class="scene s6">
+    <div class="t-mid">You have a<br><em style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.15em;">structure</em> problem.</div>
+  </div>
+
+  <!-- Scene 7: 21.5 - 24.0 -->
+  <div class="scene s7">
+    <div class="t-small">We built the operating system<br>for what comes after.</div>
+  </div>
+
+  <!-- Scene 8: 24.0 - 28.5   End card -->
+  <div class="scene s8-frame">
+    <div class="end-card">
+      <div class="t-mark s8-mark">BELVR</div>
+      <div class="end-tagline s8-tagline">The operating system for athletes in transition.</div>
+      <div class="end-url s8-url">belvr.com</div>
+    </div>
+  </div>
+
+  <div class="vignette"></div>
+  <div class="grain"></div>
+</div>
+</body>
+</html>
