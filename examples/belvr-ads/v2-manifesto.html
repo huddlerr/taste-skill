@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BELVR — Variant 2 (Manifesto)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px; height: 1350px;
+    background: #f6f3ee; color: #1c1917;
+    font-family: 'Geist', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  .grain {
+    position: absolute; inset: 0; pointer-events: none; z-index: 3; opacity: 0.08; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.09 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .frame {
+    position: relative; z-index: 1;
+    width: 1080px; height: 1350px;
+    padding: 96px 84px 84px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 48px;
+  }
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mark {
+    font-family: 'Geist', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.28em;
+    color: #1c1917;
+  }
+  .label {
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+  .stack {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 36px;
+  }
+  .headline {
+    font-family: 'Geist', sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    color: #1c1917;
+  }
+  .headline .struck {
+    text-decoration: line-through;
+    text-decoration-thickness: 6px;
+    text-decoration-color: #b91c1c;
+    color: #57534e;
+  }
+  .rebuttal {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 132px;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: #1c1917;
+    margin-top: 4px;
+  }
+  .rebuttal::before {
+    content: '';
+    display: block;
+    width: 80px; height: 2px;
+    background: #1c1917;
+    margin-bottom: 28px;
+  }
+  .body {
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 1.55;
+    color: #44403c;
+    max-width: 760px;
+    margin-top: 12px;
+  }
+  .body strong {
+    color: #1c1917;
+    font-weight: 600;
+  }
+  .body p + p { margin-top: 14px; }
+  .footer {
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .audience {
+    font-family: 'Geist Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #78716c;
+  }
+  .cta {
+    font-family: 'Geist Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1c1917;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  .cta-arrow { width: 28px; height: 1px; background: #1c1917; display: inline-block; position: relative; }
+  .cta-arrow::after {
+    content: ''; position: absolute; right: 0; top: -3px;
+    width: 7px; height: 7px; border-right: 1px solid #1c1917; border-top: 1px solid #1c1917;
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="top">
+    <div class="mark">BELVR</div>
+    <div class="label">02 / Manifesto</div>
+  </div>
+
+  <div class="stack">
+    <div class="headline">Every retired<br>athlete becomes<br>an <span class="struck">influencer</span>.</div>
+    <div class="rebuttal">I&rsquo;m not doing that.</div>
+    <div class="body">
+      <p>They sell a camp. A course. A call. None of it survives real life after sport.</p>
+      <p>BELVR is the system I needed when I retired. <strong>The Belief Code</strong> is the method underneath &mdash; the framework high performers use to rebuild after the game ends.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="audience">For athletes only. We get it because we lived it.</div>
+    <div class="cta">belvr.com <span class="cta-arrow"></span></div>
+  </div>
+</div>
+<div class="grain"></div>
+</body>
+</html>
