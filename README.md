@@ -47,6 +47,9 @@ npx skills add https://github.com/Leonxlnx/taste-skill
 | **minimalist-skill** | For clean, editorial-style interfaces inspired by tools like Notion and Linear. Monochrome, crisp borders. |
 | **brutalist-skill** | ⚠️ `BETA` Raw mechanical interfaces fusing Swiss typographic print with CRT terminal aesthetics. |
 | **stitch-skill** | Google Stitch-compatible semantic design rules for premium AI UI generation. Includes DESIGN.md for export. |
+| **founder-voice-skill** | Direct-response social ad copy in a named founder voice (Hormozi by default, switchable). Hooks under 130 chars, named-method required, banned filler-word detector. |
+| **positioning-intake-skill** | 5-question intake that forces a real positioning brief before any downstream copy is generated. Consumed by founder-voice and scroll-stop-hook. |
+| **scroll-stop-hook-skill** | Generates 10–15 hook variants for a one-line pitch using named archetypes (contrarian, diagnosis-flip, manifesto, stat cold-open, etc.). Each tagged with its archetype for structural A/B testing. |
 
 ## Settings (taste-skill only)
 

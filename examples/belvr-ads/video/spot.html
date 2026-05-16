@@ -10,14 +10,57 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 1080px; height: 1920px;
-    background: #050505; color: #f5f5f4;
+    background: #070811;     /* cold dark blue — Scene 1 baseline */
+    color: #f5f5f4;
     font-family: 'Geist', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
   }
+  /* Color-temperature drift: cool grief tones → warm acceptance tones.
+     Invisible per-frame, undeniable end-to-end. */
+  body {
+    animation: tempDrift 28.5s linear forwards;
+  }
+  @keyframes tempDrift {
+    0%   { background-color: #070811; }   /* cold dark blue  (grief/void) */
+    35%  { background-color: #070811; }   /* hold cool through memory beats */
+    50%  { background-color: #08080e; }   /* slight desaturation entering "who am I now?" */
+    65%  { background-color: #090806; }   /* neutral, warming begins at diagnosis */
+    80%  { background-color: #0c0905; }   /* warming through structure beat */
+    100% { background-color: #0f0905; }   /* warm dark amber at end card */
+  }
   .stage {
     position: relative;
     width: 1080px; height: 1920px;
+  }
+  /* Background calendar — emerges under the "structure problem" beat to tie
+     this spot to the v3 still ad. Sits behind everything except grain/vignette. */
+  .bg-calendar {
+    position: absolute; inset: 0; z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    gap: 4px;
+    padding: 40px;
+    opacity: 0;
+    mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, transparent 90%);
+    -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, transparent 90%);
+    animation: calRise 8.0s 14.0s cubic-bezier(0.16, 1, 0.3, 1) both;
+    pointer-events: none;
+  }
+  @keyframes calRise {
+    0%   { opacity: 0; }
+    22%  { opacity: 0.55; }
+    70%  { opacity: 0.55; }
+    100% { opacity: 0; }
+  }
+  .bg-calendar .cell {
+    border: 1px solid rgba(168, 162, 158, 0.22);
+    background: transparent;
+  }
+  .bg-calendar .cell.filled {
+    background: rgba(214, 211, 209, 0.30);
+    border-color: rgba(214, 211, 209, 0.38);
   }
   .grain {
     position: absolute; inset: 0; pointer-events: none; z-index: 100; opacity: 0.05;
@@ -193,6 +236,8 @@
 <body>
 <div class="stage">
 
+  <div class="bg-calendar" id="bgCal"></div>
+
   <!-- Scene 1: 0.0 - 3.0   Intro mono caret -->
   <div class="scene s1">
     <div class="t-mono">BELVR<span class="caret"></span></div>
@@ -241,5 +286,25 @@
   <div class="vignette"></div>
   <div class="grain"></div>
 </div>
+
+<script>
+  // Populate the background calendar: dense on the diagonal, sparse on the edges.
+  // Matches the v3 still-ad logic but extended to fill the frame.
+  const cal = document.getElementById('bgCal');
+  const cols = 16, rows = 20;
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      // Density gradient: high on the upper-left, decays diagonally.
+      const dx = c / (cols - 1);
+      const dy = r / (rows - 1);
+      const density = 1 - Math.min(1, (dx * 0.7 + dy * 0.5));
+      const seed = (r * 31 + c * 17 + 7) % 100;
+      if (seed / 100 < density - 0.15) cell.classList.add('filled');
+      cal.appendChild(cell);
+    }
+  }
+</script>
 </body>
 </html>
