@@ -184,3 +184,52 @@ brand) and not what direct-response copy needs.
   testable brief; a refusal produces vapor.
 - **Treating the brief as final.** Positioning iterates. The brief is a
   v0 to test, not a contract.
+
+## Worked Example — BELVR
+
+The five questions, run live for BELVR (the case in
+`examples/belvr-ads/`):
+
+| # | Question | First answer (rejected) | Final answer (accepted) |
+|---|----------|------------------------|-------------------------|
+| 1 | What does it do? | "A wellness app for athletes." | "BELVR is an operating system that helps retired athletes rebuild structure and identity after sport." |
+| 2 | Wedge audience? | "Athletes." | "Retired D1 / pro athletes in the ~18-month window after their last game, before they've figured out what's next." |
+| 3 | Named proof point? | "Personalized coaching." | "The Belief Code — a 5-stage framework for rebuilding identity after sport." |
+| 4 | The enemy? | "Generic self-help." | "The retired-athlete-influencer industrial complex — camps, courses, and one-on-ones that don't survive contact with real life." |
+| 5 | Founder's why? | "To help athletes." | "I retired from pro soccer at 27 and lost years to 'who am I now?' I'm building BELVR so the next person loses weeks, not years." |
+
+Note how every first answer failed the quality bar in this skill — too
+broad, no named mechanism, no specific enemy, bromide why. The accepted
+answers are what made the downstream copy possible.
+
+### Resulting brief
+
+```markdown
+# Positioning Brief: BELVR
+
+## One-liner
+BELVR is an operating system that helps retired athletes rebuild
+structure and identity after sport.
+
+## Wedge audience
+Retired D1 / pro athletes in the ~18-month window after their last game,
+before they've figured out what's next.
+
+## Named proof point
+**The Belief Code** — a 5-stage framework for rebuilding identity after sport.
+
+## Enemy
+The retired-athlete-influencer industrial complex: camps, courses, and
+one-on-ones that don't survive contact with real life after the game ends.
+
+## Founder's why
+I retired from pro soccer at 27 and lost years to "who am I now?" I'm
+building BELVR so the next person loses weeks, not years.
+
+## Voice anchors
+- Reference founder: Hormozi
+- Extra banned words: "wellness," "journey," "mindset" (category clichés)
+```
+
+This brief is the input consumed by `scroll-stop-hook-skill` and
+`founder-voice-skill` — see the matching worked examples in each.

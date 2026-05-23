@@ -294,3 +294,58 @@ Before returning hooks, verify:
 - **The emoji opener.** Banned across all formats unless the user explicitly requests it.
 - **Hook that doesn't connect to body.** The hook implies a promise; the
   body must keep it. Disconnected hooks feel like clickbait.
+
+## Worked Example — BELVR
+
+Input: the BELVR positioning brief (see `positioning-intake-skill`).
+Wedge audience = retired D1/pro athletes; enemy = the athlete-influencer
+industrial complex; proof point = the Belief Code.
+
+12 hooks generated against that brief, one per archetype where it fit:
+
+```
+### Hook 01 — Contrarian
+Most retired athletes lose ten years to one question.   (chars: 52)
+
+### Hook 02 — Diagnosis Flip
+You don't have a motivation problem. You have a structure problem.   (chars: 65)
+
+### Hook 03 — Stat Cold-Open
+1 in 3 retired athletes battles depression within two years.   (chars: 60)
+
+### Hook 04 — Manifesto
+Every retired athlete becomes an influencer. I'm not doing that.   (chars: 63)
+
+### Hook 05 — Founder Confession
+I retired from pro soccer at 27 and spent four years asking who I was.   (chars: 69)
+
+### Hook 06 — Enemy Call-Out
+Stop following retired athletes who became influencers.   (chars: 54)
+
+### Hook 07 — Before/After
+The athlete became the operator.   (chars: 32)
+
+### Hook 08 — Identity Hook
+If you played D1 anything, you already know what this is.   (chars: 56)
+
+### Hook 09 — Role Reversal
+The one who got coached now builds the system.   (chars: 46)
+
+### Hook 10 — Named-Question
+Who am I now?   (chars: 13)
+
+### Hook 11 — Diagnosis Flip (variant)
+It's not that you lost the sport. You lost the structure.   (chars: 56)
+
+### Hook 12 — Contrarian (variant)
+The hardest opponent shows up the day after you retire.   (chars: 55)
+```
+
+### Which won
+
+Hooks 02 (Diagnosis Flip) and 10 (Named-Question) became the spine of
+the 28.5s video spot. Note *why*: Hook 10 names the audience's private
+thought ("who am I now?") — the highest-tier scroll-stop move — and Hook
+02 reframes it as a solvable, named problem the product addresses. They
+work as a pair: question, then diagnosis. The full ad built around them
+lives in `founder-voice-skill`'s worked example.

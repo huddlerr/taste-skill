@@ -268,3 +268,55 @@ Things that look right but aren't:
   Banned. Show, don't tell. Replace with concrete mechanism.
 * **Engagement bait.** "Comment YES if you've felt this." Banned.
   Engagement bait converts low and looks desperate.
+
+## Worked Example — BELVR
+
+Inputs: the BELVR positioning brief (`positioning-intake-skill`) and the
+winning hooks (`scroll-stop-hook-skill`, hooks 02 + 10). Voice = `hormozi`.
+
+### The ad
+
+```
+You don't have a motivation problem. You have a structure problem.
+
+When the season ends, the alarm still goes off at 5am.
+But there's no practice. No team. No scoreboard.
+So you fill the hole with content. A camp. A course. A call.
+None of it survives the Tuesday after.
+
+BELVR is the operating system I needed when I retired.
+It runs on the Belief Code — five stages that rebuild
+identity and structure after sport, not around it.
+
+I lost four years to "who am I now?"
+You don't have to lose four weeks.
+
+Get early access →
+belvr.com
+```
+
+### Why it passes the pre-flight check
+
+* **Hook ≤130 chars** — 65. ✓
+* **Named method present** — "the Belief Code." ✓
+* **Wrong thing → right thing** — "a camp, a course, a call" (the enemy
+  from the brief) vs. "an operating system that runs on the Belief
+  Code." ✓
+* **CTA is a specific verb** — "Get early access," not "learn more." ✓
+* **No banned filler** — no elevate/unleash/journey/seamless. ✓
+* **First person** — founder's why is load-bearing, not decoration. ✓
+* **Sentence economy** — average well under 12 words; several under 5. ✓
+
+### How the three skills chained
+
+```
+positioning-intake  →  brief (audience, enemy, Belief Code, founder's why)
+        ↓
+scroll-stop-hook    →  12 tagged hooks; 02 + 10 selected
+        ↓
+founder-voice       →  full ad above, built around the selected hooks
+        ↓
+examples/belvr-ads/ →  the ad rendered as a 28.5s video spot
+```
+
+That's the intended pipeline: never start at the ad. Start at the brief.
