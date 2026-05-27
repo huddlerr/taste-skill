@@ -320,3 +320,67 @@ examples/belvr-ads/ →  the ad rendered as a 28.5s video spot
 ```
 
 That's the intended pipeline: never start at the ad. Start at the brief.
+
+## Worked Example — Taste-Skill (self-test, B2B developer tool)
+
+Same skill, same voice profile (`hormozi`), totally different surface:
+a B2B developer tool with no emotional founder story to lean on.
+Proves the skill works when the credibility wedge is *technical
+specificity* instead of *personal vulnerability*.
+
+Inputs: the Taste-Skill positioning brief (`positioning-intake-skill`)
+and the winning hooks (`scroll-stop-hook-skill`, hooks 01 + 02).
+
+### The ad
+
+```
+Your AI doesn't have a code problem. It has a taste problem.
+
+Look at any AI-built landing page from the last year.
+Inter. Three equal cards. A purple gradient.
+"Elevate your workflow." "Unleash your potential." "Seamless integration."
+
+It's not a bug. It's the default.
+
+Taste-Skill is what the model was missing.
+It's a vetoed-pattern catalog — forty banned fonts, layouts,
+palettes, and copy clichés — that Claude reads before it generates
+a single pixel or word.
+
+The AI didn't get worse at design. It never had a taste teacher.
+Now it does.
+
+Stop shipping slop →
+github.com/huddlerr/taste-skill
+```
+
+### Why it passes the pre-flight check
+
+* **Hook ≤130 chars** — 60. ✓
+* **Named method present** — "vetoed-pattern catalog." ✓
+* **Wrong thing → right thing** — "Inter / three equal cards / purple
+  gradient / 'elevate' / 'unleash' / 'seamless'" (the enemy from the
+  brief, quoted as evidence) vs. "a vetoed-pattern catalog Claude
+  reads before generating a single pixel." ✓
+* **CTA is a specific verb** — "Stop shipping slop," not "learn more." ✓
+* **No banned filler** — note the banned words *do appear* in the
+  body, but only inside scare quotes as the enemy being attacked. The
+  pre-flight allows this because the banned-words rule prohibits
+  *use*, not *mention*. ✓
+* **First-person or no-person** — brand voice; no "you the user are
+  amazing" announcer voice. ✓
+* **Sentence economy** — average ≈ 9 words; some at 4. ✓
+
+### Cross-domain comparison vs. BELVR
+
+| | BELVR | Taste-Skill |
+|---|---|---|
+| Credibility wedge | personal: founder's retirement story | technical: specificity of the named pattern catalog |
+| Enemy framing | category cliché (athlete-influencer industrial complex) | category default (AI-generated slop) |
+| First person | yes — "I retired… I lost four years…" | no — brand voice throughout |
+| Banned-word handling | strict avoidance | strict avoidance in product copy + weaponized as the enemy in scare quotes |
+
+Both ads pass the same pre-flight, in the same voice profile, with
+zero structural changes to the skill — the brief did all the
+adaptation work. That's the test: the skill is the skill; the brief
+is the levers.

@@ -349,3 +349,69 @@ thought ("who am I now?") — the highest-tier scroll-stop move — and Hook
 02 reframes it as a solvable, named problem the product addresses. They
 work as a pair: question, then diagnosis. The full ad built around them
 lives in `founder-voice-skill`'s worked example.
+
+## Worked Example — Taste-Skill (self-test, B2B developer tool)
+
+Different brief: B2B dev tool, not a consumer emotional brand. Same
+skill, different surface. Note that the Stat Cold-Open archetype is
+*skipped* (no credible stat available — pre-flight forbids round-number
+fabrication), proving the skill omits archetypes that don't fit rather
+than forcing them.
+
+```
+### Hook 01 — Diagnosis Flip
+Your AI doesn't have a code problem. It has a taste problem.   (chars: 60)
+
+### Hook 02 — Enemy Call-Out
+Stop shipping Inter on a #5B6CFF background.   (chars: 46)
+
+### Hook 03 — Contrarian
+Most AI tools generate the same five layouts.   (chars: 47)
+
+### Hook 04 — Manifesto
+Every AI website looks like every other AI website. We're fixing that.   (chars: 71)
+
+### Hook 05 — Founder Confession
+I shipped twelve AI-built landing pages before I admitted they all looked the same.   (chars: 84)
+
+### Hook 06 — Identity Hook
+If you've ever cringed at your AI-built landing page, this is for you.   (chars: 70)
+
+### Hook 07 — Named-Question
+Why does AI design always look like AI design?   (chars: 47)
+
+### Hook 08 — Before/After
+Before: AI-default slop. After: AI with veto power.   (chars: 51)
+
+### Hook 09 — Role Reversal
+The AI used to design. Now it edits.   (chars: 36)
+
+### Hook 10 — Diagnosis Flip (variant)
+You don't need a designer. You need a vetoer.   (chars: 45)
+
+### Hook 11 — Enemy Call-Out (variant)
+Stop letting "elevate" and "unleash" near your landing page.   (chars: 60)
+
+### Hook 12 — Contrarian (variant)
+The reason every AI site looks the same is that nobody told the model what good looks like.   (chars: 93)
+```
+
+### Which won
+
+Hook 01 (Diagnosis Flip) as the opener + Hook 02 (Enemy Call-Out) inside
+the body. The Enemy Call-Out specifically — "Inter on `#5B6CFF`" — is
+so concrete that anyone who's seen one AI-built landing page recognizes
+it instantly. Specificity always outperforms cleverness; this is the
+hook archetype rule in practice.
+
+### Cross-domain test summary
+
+| | BELVR (consumer/emotional) | Taste-Skill (B2B/dev tool) |
+|---|---|---|
+| Winning archetypes | Diagnosis Flip + Named-Question | Diagnosis Flip + Enemy Call-Out |
+| Skipped archetypes | none | Stat Cold-Open (no credible stat) |
+| Highest-tier move | naming a private thought ("who am I now?") | naming a specific concrete enemy ("Inter on #5B6CFF") |
+
+Same skill, two completely different surfaces, neither result reads
+like the other. The archetypes are the structure; the brief is the
+content.

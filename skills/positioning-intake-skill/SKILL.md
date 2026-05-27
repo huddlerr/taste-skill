@@ -233,3 +233,25 @@ building BELVR so the next person loses weeks, not years.
 
 This brief is the input consumed by `scroll-stop-hook-skill` and
 `founder-voice-skill` — see the matching worked examples in each.
+
+## Worked Example — Taste-Skill (self-test, B2B developer tool)
+
+Same five questions, different surface: a B2B developer tool, not a
+consumer/emotional brand. Proves the intake works outside the BELVR
+case.
+
+| # | Question | First answer (rejected) | Final answer (accepted) |
+|---|----------|------------------------|-------------------------|
+| 1 | What does it do? | "A skill bundle for Claude Code." | "Taste-Skill is a Claude Code skill bundle that stops AI-generated UI and copy from looking like slop." |
+| 2 | Wedge audience? | "Developers using AI." | "Solo founders shipping AI-built apps who don't have an in-house designer and keep getting Inter, three-equal-cards, and 'elevate-your-X' output by default." |
+| 3 | Named proof point? | "Design rules." | "A vetoed-pattern catalog — 40+ banned fonts, layouts, palettes, and copy clichés — applied by Claude before any UI or copy ships." |
+| 4 | The enemy? | "Bad design." | "AI-default taste: Inter on `#5B6CFF`, three equal cards, 'elevate / unleash / seamless,' the template every AI tool ships by default." |
+| 5 | Founder's why? | "I care about design." | "I watched dozens of AI-built sites land in the same slop graveyard. The model isn't bad — it just doesn't know what good looks like. So I taught it." |
+
+The enemy in Q4 is the unlock here — without forcing it, the ad would
+have had no opponent. "Bad design" is not an enemy; "Inter on `#5B6CFF`"
+is. The specificity is what makes the downstream hook
+`Stop shipping Inter on a #5B6CFF background` possible.
+
+See `scroll-stop-hook-skill` and `founder-voice-skill` for the hooks and
+ad this brief produced.
